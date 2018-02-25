@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+  </head>
+  <body>
+
+
+
+    <script type="text/javascript">
+
+    // create scorekeeping variables
+    var wins = 0;
+    var losses = 0;
+    var guessesLeft = 6;
+    var lettersGuessed = [];
+    // create words that the computer will select and the user will have to guess
+    var wordList = ["link", "mario", "luigi", "samus", "donkey kong", "diddy kong", "kirby", "princess peach", "captain falcon", "star fox"];
+    // have the computer select one the words from the list/array
+    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    console.log(randomWord);
+
+    // display length of the random word selected as underscores
+
+
+    // the user plays the game by typing
+    document.onkeyup = function(event) {
+    //
+    var userGuess = event.key;
+    console.log("user guessed: " + userGuess);
+
+    // if the user guesses wrong subtract from the number of guesses guesses guesses left
+    if (userGuess)
+
+
+    }
+
+    </script>
+
+  </body>
+</html>
