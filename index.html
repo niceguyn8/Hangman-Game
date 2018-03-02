@@ -5,6 +5,9 @@
     <title>Hangman</title>
   </head>
   <body>
+    <h2>Guess This Word:</h2>
+    <span id=randomWord></span>
+
 
 
 
@@ -16,22 +19,48 @@
     var guessesLeft = 6;
     var lettersGuessed = [];
     // create words that the computer will select and the user will have to guess
-    var wordList = ["link", "mario", "luigi", "samus", "donkey kong", "diddy kong", "kirby", "princess peach", "captain falcon", "star fox"];
+    var wordList = ["link", "mario", "luigi", "samus", "kong", "bowser", "kirby", "peach", "falcon", "fox"];
     // have the computer select one the words from the list/array
     var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(randomWord);
+    // console.log("Computer Picked: " + randomWord);
 
     // display length of the random word selected as underscores
+    var hiddenWord = [];
+      for (var i = 0; i < randomWord.length; i++) {
+        hiddenWord.push("_");
+        console.log("computer picked: " + randomWord);
+      }
 
+      // var letter = randomWord.split("");
+    // push those underscores to an html element so it displays on the page
+    var display = document.getElementById('randomWord');
+    display.innerText = hiddenWord.join(' ');
 
     // the user plays the game by typing
     document.onkeyup = function(event) {
     //
     var userGuess = event.key;
+    // lettersGuessed.push(userGuess);
+    // display.innerText = lettersGuessed.join(' ');
+
     console.log("user guessed: " + userGuess);
 
+    if (userGuess.length > 0) {
+      var indexesMatched = []
+      for (var i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] === userGuess) {
+          lettersGuessed[i] = userGuess;
+          hiddenWord[i] = userGuess;
+          display.innerText = hiddenWord.join(' ');
+        }
+      }
+
+      console.log(hiddenWord);
+      console.log(indexesMatched);
+
+    }
     // if the user guesses wrong subtract from the number of guesses guesses guesses left
-    if (userGuess)
+
 
 
     }
