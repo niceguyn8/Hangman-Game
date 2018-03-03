@@ -3,69 +3,62 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
   </head>
   <body>
-    <h2>Guess This Word:</h2>
-    <span id=randomWord></span>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1>NES Hangman</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id=instructions class="col-md-10">
+        <p>Press any key to get started!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Guess This Word:</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <span id=randomWord></span>
+      </div>
+    </div>
+
+    <br>
+    <br>
 
 
+    <div class="row">
+      <div class="col-md-6">
+        <h3>You Guessed</h3>
+        <span id=userGuessed></span>
+      </div>
+
+      <div class="col-md-6">
+        <h3>Guesses Left</h3>
+        <span id=guessesLeft></span>
+
+    <h3>Wins</h3>
+    <span id=wins></span>
+
+    <h3>Losses</h3>
+    <span id=losses></span>
 
 
-    <script type="text/javascript">
-
-    // create scorekeeping variables
-    var wins = 0;
-    var losses = 0;
-    var guessesLeft = 6;
-    var lettersGuessed = [];
-    // create words that the computer will select and the user will have to guess
-    var wordList = ["link", "mario", "luigi", "samus", "kong", "bowser", "kirby", "peach", "falcon", "fox"];
-    // have the computer select one the words from the list/array
-    var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-    // console.log("Computer Picked: " + randomWord);
-
-    // display length of the random word selected as underscores
-    var hiddenWord = [];
-      for (var i = 0; i < randomWord.length; i++) {
-        hiddenWord.push("_");
-        console.log("computer picked: " + randomWord);
-      }
-
-      // var letter = randomWord.split("");
-    // push those underscores to an html element so it displays on the page
-    var display = document.getElementById('randomWord');
-    display.innerText = hiddenWord.join(' ');
-
-    // the user plays the game by typing
-    document.onkeyup = function(event) {
-    //
-    var userGuess = event.key;
-    // lettersGuessed.push(userGuess);
-    // display.innerText = lettersGuessed.join(' ');
-
-    console.log("user guessed: " + userGuess);
-
-    if (userGuess.length > 0) {
-      var indexesMatched = []
-      for (var i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] === userGuess) {
-          lettersGuessed[i] = userGuess;
-          hiddenWord[i] = userGuess;
-          display.innerText = hiddenWord.join(' ');
-        }
-      }
-
-      console.log(hiddenWord);
-      console.log(indexesMatched);
-
-    }
-    // if the user guesses wrong subtract from the number of guesses guesses guesses left
-
-
-
-    }
-
-    </script>
-
+  <script type="text/javascript" src="./assets/javascript/game.js"></script>
   </body>
 </html>

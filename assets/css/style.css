@@ -1,0 +1,32 @@
+body {
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  background-image: url(../images/caveBackground.gif);
+  text-align: center;
+}
+
+.row {
+  border: 1px, solid, green;
+}
+
+div {
+  margin: 10px;
+  justify-content: center;
+}
+
+h1 {
+  color: aqua;
+  text-shadow: 10px 20px black;
+  text-align: center;
+}
+
+#instructions {
+  background-color: black;
+  text-align: center;
+  padding: 5px;
+  border: 5px solid violet;
+}
+
+#randomWord {
+  font-size: 30px;
+}
