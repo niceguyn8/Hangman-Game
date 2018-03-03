@@ -15,6 +15,12 @@ var wordList = ["link", "mario", "luigi", "samus", "kong", "bowser", "kirby", "p
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 // console.log("Computer Picked: " + randomWord);
 
+// start game??
+function gameStart() {
+  lettersGuessed = [];
+  guessesLeft = 0;
+  randomWord
+}
 // display length of the random word selected as underscores
 var hiddenWord = [];
   for (var i = 0; i < randomWord.length; i++) {
@@ -59,15 +65,17 @@ if (userGuess.length > 0) {
   // console.log(indexesMatched);
 }
 
-// if user guesses the entire word correctly they WIN (NOT WORKING)
-if (userGuess === hiddenWord.length) {
+// if user guesses the entire word correctly they WIN
+if (hiddenWord.indexOf(userGuess) === 0) {
   wins++;
+
+}
   document.getElementById("wins").innerHTML = wins;
   console.log("Win Count: " + wins);
   // reset the game
-  guessesLeft = 6;
-  randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-}
+  // guessesLeft = 6;
+  // randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+
 // if the user guesses wrong subtract from the number of guesses guesses guesses left
 if (hiddenWord.indexOf(userGuess) < 0) {
   guessesLeft--;
@@ -88,5 +96,4 @@ if (guessesLeft === 0) {
 
 
 }
-
 }
